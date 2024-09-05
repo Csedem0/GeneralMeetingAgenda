@@ -1,400 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>General Staff Meeting Agenda</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    h1 {
-      border-bottom: 2px solid #2c3e50;
-      padding-bottom: 10px;
-    }
-    h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-    ul, ol {
-      list-style-type: none;
-      padding: 0;
-    }
-    li {
-      margin-bottom: 10px;
-    }
-    input[type="text"], textarea {
-      width: calc(100% - 22px);
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-    }
-    textarea {
-      height: 60px; /* Adjust this as needed */
-      resize: vertical;
-    }
-    button {
-      background-color: #2c3e50;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-    }
-    button:hover {
-      background-color: #34495e;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #f4f4f4;
-    }
-    .logo-holder {
-      display: flex;
-      align-items: center;
-    }
-    .img {
-      height: 100px;
-      width: 100px;
-      margin-right: 20px;
-    }
-    #signatureCanvas {
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 300px;
-      height: 100px;
-      margin-bottom: 10px;
-      display: block;
-      margin: 0 auto;
-    }
-    #clearSignature {
-      background-color: #e74c3c;
-    }
-    #clearSignature:hover {
-      background-color: #c0392b;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Meeting Agenda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 10px;
+        }
+
+        h1,
+        h2 {
+            color: #2c3e50;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            border-bottom: 1px solid #2c3e50;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 16px;
+        }
+
+        ul,
+        ol {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 20px);
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 50px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+
+        button:hover {
+            background-color: #34495e;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .logo-holder {
+            display: flex;
+            align-items: center;
+        }
+
+        .img {
+            height: 80px;
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        #signatureCanvas {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 250px;
+            height: 80px;
+            margin-bottom: 5px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #clearSignature {
+            background-color: #e74c3c;
+        }
+
+        #clearSignature:hover {
+            background-color: #c0392b;
+        }
+
+        .form-section {
+            border: 1px solid #2c3e50;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        .form-section h2 {
+            border-bottom: 1px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+        }
+
+        .topic-item {
+            border: 1px solid #2c3e50;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .topic-item h3 {
+            margin-top: 0;
+        }
+
+        #addTopic,
+        #removeTopic {
+            margin: 10px auto;
+            display: block;
+        }
+
+        .form-footer {
+            text-align: center;
+        }
+
+        .attendee-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        #addAttendee,
+        #removeAttendee {
+            width: 48%;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="logo-holder">
-    <img src="rahlogo.jpg" alt="Company Logo" class="img">
-    <h2>RAH REAL ESTATE DEVELOPMENT AND TRANSPORTATION</h2>
-  </div>
-  <h1>General Staff Meeting Agenda</h1>
-  <h2>MEETING AGENDA</h2>
-  <form id="meetingForm">
-    <ul>
-      <li><strong>Date:</strong><br><input type="text" id="date" name="date" value="" required></li>
-      <li><strong>Last Meeting:</strong><br><input type="text" id="lastMeeting" name="lastMeeting" value="" required></li>
-      <li><strong>Purpose of Meeting:</strong><br><input type="text" id="purpose" name="purpose" value="" required></li>
-      <li><strong>Time:</strong><br><input type="text" id="time" name="time" value="" required></li>
-      <li><strong>Location:</strong><br><input type="text" id="location" name="location" value="" required></li>
-      <li><strong>Chair:</strong><br><input type="text" id="chair" name="chair" value="" required></li>
-      <li><strong>Secretary:</strong><br><input type="text" id="secretary" name="secretary" value="" required></li>
-    </ul>
-    <h2>Summary of Last Meeting</h2>
-    <textarea id="summaryLastMeeting" name="summaryLastMeeting" rows="4" required></textarea>
-    <p><strong>ATTENTION:</strong></p>
-    <p>
-      It is extremely important for you to read this agenda prior to attending the meeting. In order for you to be prepared, you must read the meeting agenda and come to the meeting prepared with any information, suggestions, or concerns you may have regarding the topics provided.
-    </p>
-    <p>
-      If there is a topic not yet listed that you find important, please contact the staff member who created the agenda in order to provide your suggested topic. Please also provide a note for the description of points that can be discussed.
-    </p>
-    <p>
-      DURING THE MEETING: Your input is important; please provide your opinions as it assists the company in its growth.
-    </p>
-    <h2>ATTENDEES:</h2>
-    <ol>
-      <li><input type="text" name="attendee1" value="" required></li>
-      <li><input type="text" name="attendee2" value="" required></li>
-      <li><input type="text" name="attendee3" value="" required></li>
-      <li><input type="text" name="attendee4" value="" required></li>
-      <li><input type="text" name="attendee5" value="" required></li>
-      <li><input type="text" name="attendee6" required></li>
-      <li><input type="text" name="attendee7" required></li>
-      <li><input type="text" name="attendee8" required></li>
-      <li><input type="text" name="attendee9" required></li>
-      <li><input type="text" name="attendee10" required></li>
-      <li><input type="text" name="attendee11" required></li>
-      <li><input type="text" name="attendee12" required></li>
-      <li><input type="text" name="attendee13" required></li>
-      <li><input type="text" name="attendee14" required></li>
-      <li><input type="text" name="attendee15" required></li>
-    </ol>
-    <h2>Topic Discussion/Meeting Notes</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Topic</th>
-          <th>Discussion/Meeting Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><textarea name="topic1" required></textarea></td>
-          <td><textarea name="note1" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic2" required></textarea></td>
-          <td><textarea name="note2" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic3" required></textarea></td>
-          <td><textarea name="note3" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic4" required></textarea></td>
-          <td><textarea name="note4" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic5" required></textarea></td>
-          <td><textarea name="note5" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic6" required></textarea></td>
-          <td><textarea name="note6" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic7" required></textarea></td>
-          <td><textarea name="note7" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic8" required></textarea></td>
-          <td><textarea name="note8" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic9" required></textarea></td>
-          <td><textarea name="note9" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic10" required></textarea></td>
-          <td><textarea name="note10" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic11" required></textarea></td>
-          <td><textarea name="note11" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic12" required></textarea></td>
-          <td><textarea name="note12" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic13" required></textarea></td>
-          <td><textarea name="note13" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic14" required></textarea></td>
-          <td><textarea name="note14" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic15" required></textarea></td>
-          <td><textarea name="note15" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic16" required></textarea></td>
-          <td><textarea name="note16" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic17" required></textarea></td>
-          <td><textarea name="note17" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic18" required></textarea></td>
-          <td><textarea name="note18" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic19" required></textarea></td>
-          <td><textarea name="note19" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic20" required></textarea></td>
-          <td><textarea name="note20" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic21" required></textarea></td>
-          <td><textarea name="note21" required></textarea></td>
-        </tr>
-        <tr>
-          <td><textarea name="topic22" required></textarea></td>
-          <td><textarea name="note22" required></textarea></td>
-        </tr>
-      </tbody>
-    </table>
-    <p><strong>Prepared By:</strong><br><input type="text" id="preparedBy" name="preparedBy" value="" required></p>
-    <h2>Signature:</h2>
-    <canvas id="signatureCanvas"></canvas>
-    <button type="button" id="clearSignature">Clear Signature</button>
-    <button type="button" onclick="saveProgress()">Save Progress</button>
-    <button type="button" onclick="generatePDF()">Save as PDF</button>
-  </form>
+    <div class="logo-holder">
+        <img src="rahlogo.jpg" alt="Company Logo" class="img">
+        <h2>RAH Real Estate Development Company International Limited</h2>
+        <p>Website: <a href="http://www.rahrealestate.org">www.rahrealestate.org</a></p>
+    </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
-  <script>
-    const { jsPDF } = window.jspdf;
+    <div class="form-section">
+        <h1>General Meeting</h1>
+    </div>
 
-    // Function to save progress
-    function saveProgress() {
-      const form = document.getElementById('meetingForm');
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
-      const signature = document.getElementById('signatureCanvas').toDataURL();
-      data.signature = signature;
-      localStorage.setItem('meetingFormData', JSON.stringify(data));
-      alert('Progress saved successfully!');
-    }
+    <div class="form-section">
+        <h2>MEETING AGENDA</h2>
+        <form id="meetingForm">
+            <div class="form-section">
+                <ul>
+                    <li><strong>Date:</strong><br><input type="text" id="date" name="date" value="" required></li>
+                    <li><strong>Last Meeting:</strong><br><input type="text" id="lastMeeting" name="lastMeeting"
+                            value="" required></li>
+                    <li><strong>Purpose of Meeting:</strong><br><input type="text" id="purpose" name="purpose" value=""
+                            required></li>
+                    <li><strong>Time:</strong><br><input type="text" id="time" name="time" value="" required></li>
+                    <li><strong>Location:</strong><br><input type="text" id="location" name="location" value=""
+                            required>
+                    </li>
+                    <li><strong>Chair:</strong><br><input type="text" id="chair" name="chair" value="" required></li>
+                    <li><strong>Secretary:</strong><br><input type="text" id="secretary" name="secretary" value=""
+                            required></li>
+                </ul>
+            </div>
+            <div class="form-section">
+                <h2>Summary of Last Meeting</h2>
+                <textarea id="summaryLastMeeting" name="summaryLastMeeting" rows="4" required></textarea>
+            </div>
+            <div class="form-section">
+                <h2>ATTENDEES:</h2>
+                <ol id="attendeesList">
+                    <li><input type="text" name="attendee1" value="" required></li>
+                    <li><input type="text" name="attendee2" value="" required></li>
+                    <li><input type="text" name="attendee3" value="" required></li>
+                    <li><input type="text" name="attendee4" value="" required></li>
+                    <li><input type="text" name="attendee5" value="" required></li>
+                </ol>
+                <div class="attendee-buttons">
+                    <button type="button" id="addAttendee">Add Attendee</button>
+                    <button type="button" id="removeAttendee">Remove Attendee</button>
+                </div>
+            </div>
+            <div class="form-section">
+                <h2>Topic Discussion/Meeting Notes</h2>
+                <div id="topicsContainer">
+                    <div class="topic-item" data-topic-number="1">
+                        <h3>Topic 1</h3>
+                        <textarea name="topic1" required></textarea>
+                        <div><strong>Duration (min):</strong><input type="text" name="duration1" required></div>
+                        <div><strong>Note:</strong><textarea name="note1" required></textarea></div>
+                    </div>
+                </div>
+                <button type="button" id="addTopic">Add Topic</button>
+                <button type="button" id="removeTopic">Remove Last Topic</button>
+                <div><strong>Total Meeting Time (min):</strong><input type="text" id="totalTime" name="totalTime"
+                        required></div>
+            </div>
+            <div class="form-footer">
+                <p><strong>Prepared By:</strong><br><input type="text" id="preparedBy" name="preparedBy" value=""
+                        required></p>
+                <h2>Signature:</h2>
+                <canvas id="signatureCanvas"></canvas>
+                <button type="button" id="clearSignature">Clear Signature</button>
+                <button type="button" onclick="saveProgress()">Save Progress</button>
+                <button type="button" onclick="generatePDF()">Save as PDF</button>
+            </div>
+        </form>
+    </div>
 
-    // Function to load progress
-    function loadProgress() {
-      const data = JSON.parse(localStorage.getItem('meetingFormData'));
-      if (data) {
-        Object.keys(data).forEach(key => {
-          const element = document.querySelector(`[name="${key}"]`);
-          if (element) {
-            element.value = data[key];
-          }
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script>
+        const { jsPDF } = window.jspdf;
+
+        let attendeeCount = 5;
+        document.getElementById('addAttendee').addEventListener('click', () => {
+            attendeeCount++;
+            const attendeeItem = document.createElement('li');
+            attendeeItem.innerHTML = `<input type="text" name="attendee${attendeeCount}" required>`;
+            document.getElementById('attendeesList').appendChild(attendeeItem);
         });
-        if (data.signature) {
-          const canvas = document.getElementById('signatureCanvas');
-          const ctx = canvas.getContext('2d');
-          const img = new Image();
-          img.onload = function() {
-            ctx.drawImage(img, 0, 0);
-          }
-          img.src = data.signature;
+
+        document.getElementById('removeAttendee').addEventListener('click', () => {
+            if (attendeeCount > 1) {
+                document.getElementById('attendeesList').lastElementChild.remove();
+                attendeeCount--;
+            }
+        });
+
+        function saveProgress() {
+            const form = document.getElementById('meetingForm');
+            const formData = new FormData(form);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            const signature = document.getElementById('signatureCanvas').toDataURL();
+            data.signature = signature;
+            localStorage.setItem('meetingFormData', JSON.stringify(data));
+            alert('Progress saved successfully!');
         }
-      }
-    }
 
-    // Function to generate PDF
-    function generatePDF() {
-      const doc = new jsPDF();
-      const titleFontSize = 22;
-      const subtitleFontSize = 16;
-      const textFontSize = 12;
-      const marginLeft = 10;
-      const pageHeight = doc.internal.pageSize.height;
-      const lineHeight = 1.15;
-      let startY = 20;
+        function loadProgress() {
+            const data = JSON.parse(localStorage.getItem('meetingFormData'));
+            if (data) {
+                // Load attendees
+                attendeeCount = 0;
+                const attendeesList = document.getElementById('attendeesList');
+                attendeesList.innerHTML = '';
+                Object.keys(data).forEach(key => {
+                    if (key.startsWith('attendee')) {
+                        attendeeCount++;
+                        const attendeeItem = document.createElement('li');
+                        attendeeItem.innerHTML = `<input type="text" name="attendee${attendeeCount}" required>`;
+                        attendeesList.appendChild(attendeeItem);
+                    }
+                });
 
-      function addText(text, fontSize, marginY = 0) {
-        const textLines = doc.splitTextToSize(text, 190);
-        doc.setFontSize(fontSize);
-        doc.text(textLines, marginLeft, startY + marginY);
-        startY += textLines.length * fontSize * lineHeight + marginY;
-        if (startY > pageHeight - 20) {
-          doc.addPage();
-          startY = 20;
+                // Load topics
+                const topicsContainer = document.getElementById('topicsContainer');
+                topicsContainer.innerHTML = '';
+                let topicNumbers = [];
+                Object.keys(data).forEach(key => {
+                    if (key.startsWith('topic')) {
+                        const number = key.match(/\d+/)[0];
+                        if (!topicNumbers.includes(number)) {
+                            topicNumbers.push(number);
+                        }
+                    }
+                });
+                topicNumbers.sort((a, b) => a - b);
+                topicNumbers.forEach(number => {
+                    const topicItem = document.createElement('div');
+                    topicItem.classList.add('topic-item');
+                    topicItem.setAttribute('data-topic-number', number);
+                    topicItem.innerHTML = `
+                        <h3>Topic ${number}</h3>
+                        <textarea name="topic${number}" required></textarea>
+                        <div><strong>Duration (min):</strong><input type="text" name="duration${number}" required></div>
+                        <div><strong>Note:</strong><textarea name="note${number}" required></textarea></div>
+                    `;
+                    topicsContainer.appendChild(topicItem);
+                });
+
+                // Populate form fields
+                Object.keys(data).forEach(key => {
+                    const element = document.querySelector(`[name="${key}"]`);
+                    if (element) {
+                        element.value = data[key];
+                    }
+                });
+
+                // Load signature
+                if (data.signature) {
+                    const canvas = document.getElementById('signatureCanvas');
+                    const ctx = canvas.getContext('2d');
+                    const img = new Image();
+                    img.onload = function () {
+                        ctx.drawImage(img, 0, 0);
+                    }
+                    img.src = data.signature;
+                }
+            }
         }
-      }
 
-      addText('General Staff Meeting', titleFontSize, 10);
-      addText('MEETING AGENDA', subtitleFontSize, 10);
-      addText(`Date: ${document.getElementById('date').value}`, textFontSize, 5);
-      addText(`Last Meeting: ${document.getElementById('lastMeeting').value}`, textFontSize, 5);
-      addText(`Purpose of Meeting: ${document.getElementById('purpose').value}`, textFontSize, 5);
-      addText(`Time: ${document.getElementById('time').value}`, textFontSize, 5);
-      addText(`Location: ${document.getElementById('location').value}`, textFontSize, 5);
-      addText(`Chair: ${document.getElementById('chair').value}`, textFontSize, 5);
-      addText(`Secretary: ${document.getElementById('secretary').value}`, textFontSize, 5);
-      addText('Summary of Last Meeting', subtitleFontSize, 10);
-      addText(`${document.getElementById('summaryLastMeeting').value}`, textFontSize, 5);
+        function generatePDF() {
+            const doc = new jsPDF();
+            const titleFontSize = 20;
+            const subtitleFontSize = 14;
+            const textFontSize = 10;
+            const marginLeft = 10;
+            const pageHeight = doc.internal.pageSize.height;
+            let startY = 20;
 
-      addText('ATTENTION:', subtitleFontSize, 10);
-      addText('It is extremely important for you to read this agenda prior to attending the meeting. In order for you to be prepared, you must read the meeting agenda and come to the meeting prepared with any information, suggestions, or concerns you may have regarding the topics provided.', textFontSize, 5);
-      addText('If there is a topic not yet listed that you find important, please contact the staff member who created the agenda in order to provide your suggested topic. Please also provide a note for the description of points that can be discussed.', textFontSize, 5);
-      addText('DURING THE MEETING: Your input is important; please provide your opinions as it assists the company in its growth.', textFontSize, 5);
+            function addText(text, fontSize, marginY = 5, lineHeight = 0.5) {
+                const textLines = doc.splitTextToSize(text, 190);
+                doc.setFontSize(fontSize);
+                textLines.forEach((line, index) => {
+                    if (startY + fontSize * lineHeight > pageHeight - 10) {
+                        doc.addPage();
+                        startY = 10;
+                    }
+                    doc.text(line, marginLeft, startY);
+                    startY += fontSize * lineHeight;
+                });
+                startY += marginY;
+            }
 
-      addText('ATTENDEES:', subtitleFontSize, 10);
-      for (let i = 1; i <= 15; i++) {
-        addText(`${i}. ${document.querySelector(`input[name="attendee${i}"]`).value}`, textFontSize, 5);
-      }
+            doc.addImage(document.querySelector('.img').src, 'JPEG', marginLeft, startY, 40, 40);
+            startY += 50;
+            addText('RAH Real Estate Development Company International Limited', subtitleFontSize, 10);
+            addText('Website: www.rahrealestate.org', textFontSize, 10);
 
-      addText('Topic Discussion/Meeting Notes', subtitleFontSize, 10);
-      const tableData = [];
-      for (let i = 1; i <= 22; i++) {
-        tableData.push([
-          document.querySelector(`textarea[name="topic${i}"]`).value,
-          document.querySelector(`textarea[name="note${i}"]`).value
-        ]);
-      }
+            addText('General Meeting', titleFontSize, 4, 1);
+            addText('MEETING AGENDA', subtitleFontSize, 4, 1);
+            addText(`Date: ${document.getElementById('date').value}`, textFontSize, 4, 1);
+            addText(`Last Meeting: ${document.getElementById('lastMeeting').value}`, textFontSize, 4, 1);
+            addText(`Purpose of Meeting: ${document.getElementById('purpose').value}`, textFontSize, 4, 1);
+            addText(`Time: ${document.getElementById('time').value}`, textFontSize, 4, 1);
+            addText(`Location: ${document.getElementById('location').value}`, textFontSize, 4, 1);
+            addText(`Chair: ${document.getElementById('chair').value}`, textFontSize, 4, 1);
+            addText(`Secretary: ${document.getElementById('secretary').value}`, textFontSize, 10, 1);
+            addText('Summary of Last Meeting', subtitleFontSize, 10, 1);
+            addText(`${document.getElementById('summaryLastMeeting').value}`, textFontSize, 5, 1.5);
 
-      tableData.forEach((row, index) => {
-        if (startY + textFontSize * lineHeight > pageHeight - 20) {
-          doc.addPage();
-          startY = 20;
+            addText('ATTENDEES:', subtitleFontSize, 10, 1);
+            for (let i = 1; i <= attendeeCount; i++) {
+                addText(`${i}. ${document.querySelector(`input[name="attendee${i}"]`).value}`, textFontSize, 5);
+            }
+
+            addText('Topic Discussion/Meeting Notes', subtitleFontSize, 10, 1);
+
+            const tableData = [];
+            for (let i = 1; i <= document.querySelectorAll('.topic-item').length; i++) {
+                tableData.push([
+                    document.querySelector(`textarea[name="topic${i}"]`).value,
+                    document.querySelector(`input[name="duration${i}"]`).value,
+                    document.querySelector(`textarea[name="note${i}"]`).value
+                ]);
+            }
+
+            tableData.forEach((row, index) => {
+                addText(`Topic ${index + 1}: ${row[0]}`, textFontSize, 4, 0.5);
+                addText(`Duration: ${row[1]} minutes`, textFontSize, 4, 1);
+                addText(`Note: ${row[2]}`, textFontSize, 10, 0.5);
+                doc.setDrawColor(0);
+                doc.line(marginLeft, startY, 200, startY);
+                startY += 5;
+            });
+
+            addText(`Total Meeting Time: ${document.getElementById('totalTime').value} minutes`, textFontSize, 10);
+            addText(`Prepared By: ${document.getElementById('preparedBy').value}`, textFontSize, 10);
+
+            const signature = document.getElementById('signatureCanvas').toDataURL('image/png');
+            doc.addImage(signature, 'PNG', marginLeft, startY + 10, 80, 40);
+
+            doc.save('General_Meeting_Agenda.pdf');
         }
-        addText(`Topic ${index + 1}: ${row[0]}`, textFontSize, 5);
-        addText(`Note: ${row[1]}`, textFontSize, 5);
-      });
 
-      addText(`Prepared By: ${document.getElementById('preparedBy').value}`, textFontSize, 10);
+        const canvas = document.getElementById('signatureCanvas');
+        const ctx = canvas.getContext('2d');
+        let isDrawing = false;
 
-      // Add signature to the PDF
-      const signature = document.getElementById('signatureCanvas').toDataURL('image/png');
-      doc.addImage(signature, 'PNG', marginLeft, startY + 10, 100, 50);
+        canvas.addEventListener('mousedown', e => {
+            isDrawing = true;
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        });
 
-      doc.save('General_Staff_Meeting_Agenda.pdf');
-    }
+        canvas.addEventListener('mousemove', e => {
+            if (isDrawing) {
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+            }
+        });
 
-    // Signature canvas functionality
-    const canvas = document.getElementById('signatureCanvas');
-    const ctx = canvas.getContext('2d');
-    let isDrawing = false;
+        canvas.addEventListener('mouseup', () => {
+            if (isDrawing) {
+                ctx.stroke();
+                ctx.closePath();
+                isDrawing = false;
+            }
+        });
 
-    canvas.addEventListener('mousedown', e => {
-      isDrawing = true;
-      ctx.beginPath();
-      ctx.moveTo(e.offsetX, e.offsetY);
-    });
+        canvas.addEventListener('mouseout', () => {
+            if (isDrawing) {
+                ctx.stroke();
+                ctx.closePath();
+                isDrawing = false;
+            }
+        });
 
-    canvas.addEventListener('mousemove', e => {
-      if (isDrawing) {
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-      }
-    });
+        document.getElementById('clearSignature').addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
 
-    canvas.addEventListener('mouseup', () => {
-      if (isDrawing) {
-        ctx.stroke();
-        ctx.closePath();
-        isDrawing = false;
-      }
-    });
+        document.getElementById('addTopic').addEventListener('click', () => {
+            const topicCount = document.querySelectorAll('.topic-item').length + 1;
+            const topicsContainer = document.getElementById('topicsContainer');
+            const topicItem = document.createElement('div');
+            topicItem.classList.add('topic-item');
+            topicItem.setAttribute('data-topic-number', topicCount);
+            topicItem.innerHTML = `
+                <h3>Topic ${topicCount}</h3>
+                <textarea name="topic${topicCount}" required></textarea>
+                <div><strong>Duration (min):</strong><input type="text" name="duration${topicCount}" required></div>
+                <div><strong>Note:</strong><textarea name="note${topicCount}" required></textarea></div>
+            `;
+            topicsContainer.appendChild(topicItem);
+        });
 
-    canvas.addEventListener('mouseout', () => {
-      if (isDrawing) {
-        ctx.stroke();
-        ctx.closePath();
-        isDrawing = false;
-      }
-    });
+        document.getElementById('removeTopic').addEventListener('click', () => {
+            const topicsContainer = document.getElementById('topicsContainer');
+            if (topicsContainer.children.length > 1) {
+                topicsContainer.removeChild(topicsContainer.lastElementChild);
+            }
+        });
 
-    document.getElementById('clearSignature').addEventListener('click', () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
+        window.onload = loadProgress;
+    </script>
 
-    window.onload = loadProgress;
-  </script>
 </body>
+
 </html>
